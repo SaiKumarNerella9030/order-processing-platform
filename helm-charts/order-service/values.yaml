@@ -2,8 +2,9 @@ replicaCount: 1
 
 image:
   repository: saikumarnerella90/order-service
-  tag: "latest"
-  pullPolicy: IfNotPresent
+  tag: latest  
+
+imagePullPolicy: Always
 
 service:
   type: ClusterIP
