@@ -1,12 +1,13 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
+kind: RoleBinding
 metadata:
-  name: grafana-cluster-rolebinding
+  name: grafana-rolebinding
+  namespace: monitoring
 subjects:
   - kind: ServiceAccount
     name: grafana-sa
+    namespace: monitoring
 roleRef:
-  kind: ClusterRole
-  name: grafana-cluster-role
+  kind: Role
+  name: grafana-role
   apiGroup: rbac.authorization.k8s.io
-
