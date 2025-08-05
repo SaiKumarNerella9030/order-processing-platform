@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: mydockerhub/auth-service
+  repository: saikumarnerella90/auth-service
   tag: "latest"
   pullPolicy: IfNotPresent
 
