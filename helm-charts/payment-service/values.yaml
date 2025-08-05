@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: mydockerhub/payment-service
+  repository: saikumarnerella90/payment-service
   tag: "latest"
   pullPolicy: IfNotPresent
 
