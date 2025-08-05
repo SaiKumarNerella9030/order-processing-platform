@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_REGISTRY = 'your-dockerhub-username'
+        DOCKER_REGISTRY = 'saikumarnerella90'
         IMAGE_TAG = "v1"
     }
 
