@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: mydockerhub/user-service
+  repository: saikumarnerella90/user-service
   tag: "latest"
   pullPolicy: IfNotPresent
 
