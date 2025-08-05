@@ -15,7 +15,7 @@ pipeline {
 
         stage('Init Kube Config') {
             steps {
-                withCredentials([file(credentialsId: 'kubeconfig-b64', variable: 'KUBECONFIG')]) {
+                withCredentials([file(credentialsId: 'kubeconfig-creds', variable: 'KUBECONFIG')]) {
                     sh '''
                         mkdir -p ~/.kube
                         cp $KUBECONFIG ~/.kube/config
