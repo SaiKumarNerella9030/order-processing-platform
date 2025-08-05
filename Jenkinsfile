@@ -42,7 +42,7 @@ pipeline {
 
         stage('Apply Prometheus RBAC') {
             steps {
-                sh 'kubectl apply -f monitoring/prometheus/rbac.yaml -n devopsify'
+                sh 'kubectl apply -f monitoring/prometheus/rbac/ -n devopsify'
             }
         }
 
@@ -60,7 +60,7 @@ pipeline {
 
         stage('Apply Grafana RBAC') {
             steps {
-                sh 'kubectl apply -f monitoring/grafana/rbac.yaml -n devopsify'
+                sh 'kubectl apply -f monitoring/grafana/rbac/ -n devopsify'
             }
         }
 
