@@ -2,8 +2,9 @@ replicaCount: 1
 
 image:
   repository: saikumarnerella90/frontend-service
-  tag: "latest"
-  pullPolicy: IfNotPresent
+  tag: latest  
+
+imagePullPolicy: Always
 
 service:
   type: LoadBalancer
