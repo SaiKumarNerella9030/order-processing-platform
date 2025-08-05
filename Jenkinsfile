@@ -18,7 +18,7 @@ pipeline {
           sh """
             cp $KUBECONFIG_FILE ${KUBECONFIG_PATH}
             export KUBECONFIG=${KUBECONFIG_PATH}
-            kubectl version --short
+            kubectl version --client=true
           """
         }
       }
