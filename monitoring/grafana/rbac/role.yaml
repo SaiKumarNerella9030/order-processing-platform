@@ -1,9 +1,9 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
+kind: Role
 metadata:
-  name: grafana-cluster-role
+  name: grafana-role
+  namespace: monitoring
 rules:
   - apiGroups: [""]
-    resources: ["nodes", "services", "endpoints", "pods"]
+    resources: ["configmaps", "secrets"]
     verbs: ["get", "list", "watch"]
-
