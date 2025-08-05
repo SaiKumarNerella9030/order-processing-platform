@@ -24,7 +24,8 @@ pipeline {
                         echo "$KUBE_CONFIG_B64" | base64 -d > $KUBECONFIG_PATH
                         chmod 600 $KUBECONFIG_PATH
                         echo "✅ Kubeconfig decoded and stored."
-                        kubectl version --short
+                        echo "📦 K8s Client Version:"
+                        kubectl version --client
                     '''
                 }
             }
