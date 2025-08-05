@@ -34,7 +34,7 @@ pipeline {
         stage('Create Namespaces') {
             steps {
                 sh '''
-                    kubectl create namespace devopsify --dry-run=client -o yaml | kubectl apply -f -
+                    kubectl create namespace monitoring --dry-run=client -o yaml | kubectl apply -f -
                     echo "✅ Namespace created/applied."
                 '''
             }
@@ -42,7 +42,7 @@ pipeline {
 
         stage('Apply Prometheus RBAC') {
             steps {
-                sh 'kubectl apply -f monitoring/prometheus/rbac/ -n devopsify'
+                sh 'kubectl apply -f monitoring/prometheus/rbac/ -n monitoring'
             }
         }
 
@@ -52,7 +52,7 @@ pipeline {
                     helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
                     helm repo update
                     helm upgrade --install prometheus prometheus-community/prometheus \
-                        --namespace devopsify \
+                        --namespace monitoring \
                         -f monitoring/prometheus/values.yaml
                 '''
             }
@@ -60,7 +60,7 @@ pipeline {
 
         stage('Apply Grafana RBAC') {
             steps {
-                sh 'kubectl apply -f monitoring/grafana/rbac/ -n devopsify'
+                sh 'kubectl apply -f monitoring/grafana/rbac/ -n monitoring'
             }
         }
 
@@ -70,7 +70,7 @@ pipeline {
                     helm repo add grafana https://grafana.github.io/helm-charts
                     helm repo update
                     helm upgrade --install grafana grafana/grafana \
-                        --namespace devopsify \
+                        --namespace monitoring \
                         -f monitoring/grafana/values.yaml
                 '''
             }
@@ -78,13 +78,13 @@ pipeline {
 
         stage('Apply ServiceMonitors') {
             steps {
-                sh 'kubectl apply -f monitoring/servicemonitors/ -n devopsify'
+                sh 'kubectl apply -f monitoring/servicemonitors/ -n monitoring'
             }
         }
 
         stage('Verify Monitoring Stack') {
             steps {
-                sh 'kubectl get pods -n devopsify'
+                sh 'kubectl get pods -n monitoring'
             }
         }
 
