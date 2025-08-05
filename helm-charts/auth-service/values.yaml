@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: mydockerhub/auth-service
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5000
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+

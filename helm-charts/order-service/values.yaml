@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: mydockerhub/order-service
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5003
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+

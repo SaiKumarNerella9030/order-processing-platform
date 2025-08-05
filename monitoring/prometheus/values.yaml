@@ -1,0 +1,12 @@
+alertmanager:
+  enabled: true
+
+server:
+  service:
+    type: ClusterIP
+  persistentVolume:
+    enabled: false
+
+rbac:
+  create: false  # We'll create it manually
+

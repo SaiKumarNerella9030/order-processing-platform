@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: mydockerhub/user-service
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5001
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+

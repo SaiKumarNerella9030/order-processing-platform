@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: mydockerhub/payment-service
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5002
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
